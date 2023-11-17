@@ -191,6 +191,7 @@ def change_active_database(request, session):
 
     conn = Connection.objects.get(id=conn_id)
     conn.last_used_database = new_database
+    conn.last_access_date = datetime.now()
     conn.save()
 
     request.session["pgmanage_session"] = session

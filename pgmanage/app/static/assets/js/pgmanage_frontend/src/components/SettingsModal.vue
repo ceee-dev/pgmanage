@@ -465,7 +465,8 @@ export default {
         shortcuts: this.shortcutList
       })
         .then((resp) => {
-          showToast("success", "Shortcuts saved.");
+          showToast("success", "Shortcuts saved.")
+          emitter.emit('shortcuts_updated', "")
         })
         .catch((error) => {
           console.log(error);
