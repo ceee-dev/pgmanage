@@ -102,7 +102,6 @@ $(function () {
   initCreateTabFunctions();
 
   // Creating the welcome tab.
-  // v_connTabControl.tag.createWelcomeTab();
   welcomeScreenInit()
   // Creating the snippets panel.
   v_connTabControl.tag.createSnippetPanel();
