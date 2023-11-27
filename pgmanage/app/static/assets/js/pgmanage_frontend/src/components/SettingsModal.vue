@@ -240,7 +240,7 @@ export default {
         "utf-8-sig", "windows-1252"
       ],
       shortcutLabels: [
-        "Run Query", "Cancel Query", "Indent", "New Inner Tab",
+        "Run Query", "Run Selection", "Cancel Query", "Indent", "New Inner Tab",
         "Remove Current Inner Tab", "Select Left Inner Tab", "Select Right Inner Tab",
         "Autocomplete", "Run Explain", "Run Explain Analyze",
       ],
@@ -305,6 +305,13 @@ export default {
         }
         else if (window.v_connTabControl.selectedTab.tag.mode == 'outer_terminal')
           terminalRun();
+      },
+      shortcut_run_selection: function () {
+        if (window.v_connTabControl.selectedTab.tag.mode == 'connection') {
+          if (window.v_connTabControl.selectedTab.tag.tabControl.selectedTab.tag.mode == 'query') {
+            emitter.emit(`${window.v_connTabControl.selectedTab.tag.tabControl.selectedTab.id}_run_selection`)
+          }
+        }
       },
       shortcut_explain: function () {
 
